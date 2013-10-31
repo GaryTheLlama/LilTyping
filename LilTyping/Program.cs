@@ -14,8 +14,10 @@ namespace LilTyping
         {
             Game game = new Game("Li'l Typing", 1280, 720);
 
-            //game.FirstScene = new BasicSpellingScene();
-            game.FirstScene = new MenuScene();
+            List<Scene> sceneCollection = new List<Scene>() { new BasicSpellingScene(), new MenuScene() };
+
+            game.Scenes = new Stack<Scene>(sceneCollection);
+            game.FirstScene = game.Scenes.Pop();
             
             game.Start();
         }
