@@ -12,7 +12,7 @@ namespace LilTyping
     {
         public static void Main(string[] args)
         {
-            Game game = new Game("Li'l Typing", 1000, 800);
+            Game game = new Game("Li'l Typing", 1280, 720);
 
             game.FirstScene = new BasicSpellingScene();
             
