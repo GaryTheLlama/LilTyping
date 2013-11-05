@@ -11,7 +11,10 @@ namespace LilTyping
     public class Player : Entity
     {
         //Texture texture = new Texture("test.png");
+        
         protected Image img = Image.CreateRectangle(100, 100);
+        
+        private float angle = 0.0f;
 
         public Player() : base()
         {
@@ -25,11 +28,15 @@ namespace LilTyping
         {
             base.Update();
 
+            img.Angle += angle * Game.DeltaTime;
+
             if (Input.KeyPressed(Key.Any))
             {
                 img.Scale = 1;
                 img.Visible = true;
                 img.Color = Util.RandomColor();
+
+                angle = Rand.Float(-4.0f, 4.0f);
 
                 X = Util.RandomRange(0, Game.Scene.Width - 100);
                 Y = Util.RandomRange(0, Game.Scene.Height - 100);
