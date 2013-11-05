@@ -46,7 +46,14 @@ namespace LilTyping
                 
                 if (Input.KeyString.ToLower().Equals("quit"))
                 {
-                    Game.Close();
+                    if (Game.Instance.Scenes.Count > 1)
+                    {
+                        Game.Instance.Scenes.Pop();
+                    }
+                    else
+                    {
+                        Game.Close();
+                    }
                 }
             }
 

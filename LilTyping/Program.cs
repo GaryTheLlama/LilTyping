@@ -12,12 +12,13 @@ namespace LilTyping
     {
         public static void Main(string[] args)
         {
-            Game game = new Game("Li'l Typing", 1280, 720);
+            String title = String.Format("{0} {1}", Resources.GameTitle, Resources.Version);
+
+            Game game = new Game(title, 1280, 720);
 
             List<Scene> sceneCollection = new List<Scene>() { new BasicSpellingScene(), new MenuScene() };
 
-            game.Scenes = new Stack<Scene>(sceneCollection);
-            game.FirstScene = game.Scenes.Pop();
+            game.AddScene(sceneCollection.ToArray());
             
             game.Start();
         }
