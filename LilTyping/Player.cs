@@ -29,6 +29,7 @@ namespace LilTyping
             base.Update();
 
             img.Angle += angle * Game.DeltaTime;
+            //img.Y += Convert.ToSingle(Math.Sin(angle + img.X)) * Game.DeltaTime;
 
             if (Input.KeyPressed(Key.Any))
             {
