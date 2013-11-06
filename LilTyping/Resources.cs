@@ -12,9 +12,15 @@ namespace LilTyping
 
         private const int MajorVersion = 0;
         private const int MinorVersion = 0;
-        private const int RevisionVersion = 1;
+        private const int RevisionVersion = 2;
 
         public static string Version = String.Format("{0}.{1}.{2}", MajorVersion, MinorVersion, RevisionVersion);
+
+        #endregion
+
+        #region Misc. Constants
+
+        public const int MaxNumShapes = 100;
 
         #endregion
 
