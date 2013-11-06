@@ -44,7 +44,7 @@ namespace LilTyping
             // Fade object out after five seconds.
             if (Timer == 300)
             {
-                Tween(img, new { Alpha = 0 }, 60).Ease(Ease.SineOut);   
+                Tween(img, new { Alpha = 0 }, 60).Ease(Ease.SineOut);
             }
 
             // Remove object once alpha reaches zero.

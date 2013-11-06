@@ -10,17 +10,20 @@ namespace LilTyping
 {
     public class MenuScene : Scene
     {
+        private Image img;
+        private Entity e;
+
         public MenuScene() : base()
         {
-            Entity e = new Entity();
+            e = new Entity();
 
-            Image i = new Image(Resources.PaperLlamaLogo);
+            img = new Image(Resources.PaperLlamaLogo);
             
-            i.CenterOrigin();
-            i.X = Game.Instance.HalfWidth;
-            i.Y = Game.Instance.HalfHeight;
+            img.CenterOrigin();
+            img.X = Game.Instance.HalfWidth;
+            img.Y = Game.Instance.HalfHeight;
 
-            e.SetGraphic(i);
+            e.SetGraphic(img);
             
             Add(e);
         }
@@ -28,8 +31,14 @@ namespace LilTyping
         public override void Update()
         {
             base.Update();
+            
+            if (Input.KeyPressed(Key.Any) || Timer > 180)
+            {
+                Tween(img, new { Alpha = 0 }, 30).Ease(Ease.SineOut);
+            }
 
-            if (Timer > 180)
+            // Pop the splash screen once the alpha reaches zero.
+            if (img.Alpha == 0)
             {
                 Game.Instance.Scenes.Pop();
             }
