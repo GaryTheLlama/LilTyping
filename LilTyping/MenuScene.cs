@@ -35,6 +35,9 @@ namespace LilTyping
             if (Input.KeyPressed(Key.Any) || Timer > 180)
             {
                 Tween(img, new { Alpha = 0 }, 30).Ease(Ease.SineOut);
+                
+                // Now clear the input string.
+                Game.Instance.Input.ClearKeystring();
             }
 
             // Pop the splash screen once the alpha reaches zero.
