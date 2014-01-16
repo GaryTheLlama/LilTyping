@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasicSpellingScene.cs" />
+    <Compile Include="Cat.cs" />
+    <Compile Include="EntityFactory.cs" />
+    <Compile Include="House.cs" />
     <Compile Include="MashingScene.cs" />
     <Compile Include="MenuScene.cs" />
     <Compile Include="Player.cs" />

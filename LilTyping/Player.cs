@@ -23,6 +23,7 @@ namespace LilTyping
             dictionary.Add("dog");
             dictionary.Add("ball");
             dictionary.Add("boo");
+            dictionary.Add("house");
 
             text = new RichText("", 64);
             text.X = 50;
@@ -45,7 +46,9 @@ namespace LilTyping
             text.Update();
 
             // Test out text effects.
-            text.String = "{waveAmpY:5}{waveRate:5}" + Input.KeyString;
+            //text.String = "{waveAmpY:5}{waveRate:5}" + Input.KeyString;
+
+            text.String = Input.KeyString;
 
             if (Input.KeyPressed(Key.Any))
             {
@@ -61,12 +64,15 @@ namespace LilTyping
                 }*/
 
                 // StringBuilder may be faster, but no point in using it until I've profiled.
-                currentWord += Input.LastKey;
+                //currentWord += Input.LastKey;
+                currentWord += Input.LastKey.ToString().ToLower();
+
+                Console.Write(currentWord.ToLower());
 
                 // Clear KeyString when enter or spacebar is pressed.
                 if (Input.LastKey.ToString().Equals("Return") || Input.LastKey.ToString().Equals("Space"))
                 {
-                    //Input.ClearKeystring();
+                    Input.ClearKeystring();
 
                     currentWord = "";
                 }
@@ -74,17 +80,27 @@ namespace LilTyping
                 // Check current key string against dictionary of words.
                 if (dictionary.Contains(currentWord.ToLower()))
                 {
-                    switch (currentWord.ToLower())
+                    var entity = EntityFactory.GetEntity(currentWord);
+                    Game.Instance.Scene.Add(entity);
+
+                    /*switch (currentWord.ToLower())
                     {
                         case "cat":
-                            // TODO: Highlight text.
-                            // TODO: Show picture of cat.
-                            Console.WriteLine("A wild cat appears!");
+                            // TODO: Highlight the text.
+                            text.String = "";
+                            Game.Instance.Scene.Add(new Cat(Game.HalfWidth, Game.HalfHeight));
+                            break;
+                        case "home":
+                            Console.WriteLine("house");
+                            Entity house = Game.Instance.Scene.GetClass<House>().First();
                             break;
                         case "boo":
+                            Console.WriteLine("boo");
                             //text.String = "{waveAmpY:5}{waveRate:5}" + currentWord;
                             break;
-                    }
+                        default:
+                            break;
+                    }*/
                 }
                 
                 if (Input.KeyString.ToLower().Equals("quit"))

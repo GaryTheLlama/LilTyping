@@ -13,6 +13,7 @@ namespace LilTyping
         public BasicSpellingScene() : base()
         {
             Add(new Player());
+            Add(new House(Game.Instance.HalfWidth, Game.Instance.HalfHeight));
         }
     }
 }

@@ -33,6 +33,8 @@ namespace LilTyping
         #region Graphics
 
         public const string PaperLlamaLogo = "Assets/PaperLlamaLogo.png";
+        public const string CatSprite = "Assets/Cat.png";
+        public const string HouseSprite = "Assets/House.png";
 
         #endregion
     }
